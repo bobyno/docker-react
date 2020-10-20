@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t bobyno/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run  bobyno/docker-react npm run test -- --coverage
